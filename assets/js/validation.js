@@ -32,21 +32,20 @@
                   var endYear = document.forms["dataSummary"]["endYear"].value;
                    var startYears = document.forms["dataSummary"]["startYears"].value;
                  alert(startYears);
+                 alert(endYear);
                   if ((state === "ini") && (year === "ini")) {
                  document.getElementById("categoryError").innerHTML = "*Please provide valid infomation";
                   return false;
                  }
-       					 if(endYear < startYears){
+       					 if(endYear < startYears ){
                   
        					 	document.getElementById("yearError").innerHTML = "*Please provide valid year range";
                   $("#startYears").css("border-color", "red");
                   $("#endYear").css("border-color", "red");
-       					 }else{
-                  alert(endYear);
+                  return false;
+       					 } 
 
-       					 }
-
-         			});
+         			    });
                     } else {
                         showStates();
                         $( "#year_Select" ).prop( "disabled", true );
