@@ -1,6 +1,6 @@
 <?php
 	$sectionA = array(
-		
+		''=> '&#8212&#8212&#8212&#8212&#8212&#8212',
 		'a1' => 'Labor Force',
 		'a2' => 'Claim Data',
 		'a3' => 'Benefit and Duration',
@@ -10,7 +10,7 @@
 	);
 	
 	$sectionB = array(
-		
+		'' => '&#8212&#8212&#8212&#8212&#8212&#8212',
 		'b1' => 'All Categories',
 		'b2' => 'Labor Force Data',
 		'b3' => 'Benefits paid',
@@ -106,19 +106,21 @@ Department of Labor, Doleta, ETA, Employment Training Administration" />
 <script type="text/JavaScript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 <script src="https://webapps.dol.gov/FSPublic/Scripts/W_Helpful.js" type="text/JavaScript"></script>
 <script src="assets/js/validation.js" type="text/JavaScript"></script>
+<script src="assets/js/validaton2.js" type="text/JavaScript"></script>
 <link href="https://webapps.dol.gov/FSPublic/Content/W_Helpful.css" rel="stylesheet" />
 
-<script src="uids.js" type="text/javascript"></script>
+
+<img src="assets/image/header.png" width="100%" height="100%">
 </head>
 <body >
-<?php include($path . "include/metatag.inc"); ?>
+<!-- php include($path . "include/metatag.inc"); -->
 
 
 
 <div id="wrapper">
-  <?php include($path . "include/header.inc"); ?>
+  <!-- php include($path . "include/header.inc");  -->
   <div id="container">
-  	<?php include($path . "include/localMain.inc"); ?>
+  	<!-- php include($path . "include/localMain.inc"); -->
     <div id="content"><a name="#content" id="#content"></a>
       <h1><?php echo $title; ?></h1>
       <!---- Content starts ---->  
@@ -129,11 +131,11 @@ Department of Treasury data on state UI trust fund activities). This report is i
 to provide the user with a quick overview of the status of the UI system at the national and 
 state levels.  If you are having any problems loading the pdf format data charts on this page, 
 please contact <a href="mailto:Kim.Hyunchung@dol.gov">Hyunchung Kim</a>.<br /><br />
-
+<!-- 
 <font color="#990000">*</font>Attention Data Summary Users – Due to the revised calculation for weeks claimed made back in the 3rd quarter of 2006, the Insured Unemployment Rate (IUR) calculations were inadvertently changed as well. The files have now been updated to use calculations consistent with the published average weekly insured unemployed values where claims are reported in the state of residence. These changes affect IURs from the 3rd quarter of 2006 through the 1st quarter of 2008.
 
 </p>
-<strong>Glossary of Data <a href="/unemploy/DEF.pdf">Definitions</a>:</strong>
+<strong>Glossary of Data <a href="/unemploy/DEF.pdf">Definitions</a>:</strong> -->
 </br>
 </br>
 	<form id="dataSummary" action="test1.php" method="post">
@@ -146,13 +148,13 @@ please contact <a href="mailto:Kim.Hyunchung@dol.gov">Hyunchung Kim</a>.<br /><b
 	<div id="test">
 	<tr>
 		<td colspan="1">
-			<input type="radio" name="OrderBy" value="OrderBy_Year" id="OrderBy_Year"   class="chk-display" required/>
+			<input type="radio" name="OrderBy" value="OrderBy_Year" id="OrderBy_Year" onclick="selectYear();"  class="chk-display" required/>
 			<label for="OrderBy_Year">Quarter/Year</label>
 			
    
 		</td>
 		<td>
-			<input type="radio" name="OrderBy" value="OrderBy_State" id="OrderBy_State"  class="chk-display" required/>
+			<input type="radio" name="OrderBy" value="OrderBy_State" id="OrderBy_State" onclick="selectState();" class="chk-display" required/>
 			<label for="OrderBy_State">State</label><br/>
         
 			
@@ -198,7 +200,7 @@ please contact <a href="mailto:Kim.Hyunchung@dol.gov">Hyunchung Kim</a>.<br /><b
 					<input type="text"  name="USTot" placeholder="US Total" disabled="disabled" style ="width:140px;">
 				</span>
 			<br>
-				<select name="state" id="state" size="4" multiple="multiple" style="visibility:hidden;" required>
+				<select name="state" id="state" size="4" multiple="multiple" style="visibility:hidden;" >
 				<?php
 					foreach($states as $key => $value){
 						echo '<option value="', $key, '"> ', $value, '</option>', PHP_EOL;
@@ -232,7 +234,7 @@ please contact <a href="mailto:Kim.Hyunchung@dol.gov">Hyunchung Kim</a>.<br /><b
 			Starts:
 			<br>
 				<select id="startYears" name="firstYear" required>
-					<option value="0">-Select-</option>
+					<option value="">&#8212;</option>
 					<option value="2017.4">Q4 2017</option>
 					<option value="2017.3">Q3 2017</option>
 					<option value="2017.2">Q2 2017</option>
@@ -270,7 +272,7 @@ please contact <a href="mailto:Kim.Hyunchung@dol.gov">Hyunchung Kim</a>.<br /><b
 			Ends:
 			<br>
 				<select id="endYear" name="lastYear" required>
-					<option value="0" >-Select-</option>
+					<option value="">&#8212;</option>
 					<option value="2017.4">Q4 2017</option>
 					<option value="2017.3">Q3 2017</option>
 					<option value="2017.2">Q2 2017</option>
@@ -309,7 +311,7 @@ please contact <a href="mailto:Kim.Hyunchung@dol.gov">Hyunchung Kim</a>.<br /><b
 		<tr>
 			
 			<td>
-				<input type="submit" id="submit" name="submit" value="Submit" style="float: right;" />
+				<input type="submit" id="submit" name="submit"  value="Submit" style="float: right;" />
 			</td>
 		</tr>
 	</table>
