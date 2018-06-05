@@ -16,26 +16,22 @@
 
 <button onclick="goBack()">Go Back</button>
 </br>
+</br>
 <?PHP
-$state =  $_POST['state'] ;
 $optionFirstYear =  $_POST['firstYear'] ;
 $optionLastYear =  $_POST['lastYear'];
-print_r($state);
-
 $row = 1;
-if (($handle = fopen('Final_UIDS_History.csv', 'r')) !== FALSE)
-{
+if (($handle = fopen('Final_UIDS_History.csv', 'r')) !== FALSE){
     echo '<table>';
     $data = fgetcsv($handle, 1000, ',');
     // Get headers
-     if ( $data!== FALSE )
-    {
+     if ( $data!== FALSE ){
        echo '<tr><th>'.implode('</th><th>', $data).'</th></tr>';
     }
     // Get the rest
      while (($data = fgetcsv($handle, 124217728, ',')) !== FALSE   ){
         if(($_POST['OrderBy'])== "OrderBy_State"){
-        if ( ($state == $data[0]) && ( $optionFirstYear <= $data[1] && $optionLastYear >= $data[1] ) ) {
+        if ( ($_POST['state'] == $data[0]) && ( $optionFirstYear <= $data[1] && $optionLastYear >= $data[1] ) ) {
         echo '<tr><td>'.implode('</td><td>', $data).'</td></tr>';
         }
         } else if ( $optionFirstYear <= $data[1] && $optionLastYear >= $data[1] ) {

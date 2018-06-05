@@ -188,7 +188,7 @@ please contact <a href="mailto:Kim.Hyunchung@dol.gov">Hyunchung Kim</a>.<br /><b
 				<label for="state">State:</label> <br />
 				<br>
 			<span id="states_disable"  style="visibility:hidden;" >
-					<input type="text"  name="USTot" placeholder="US Total" disabled="disabled" style ="width:140px;">
+					<input type="text"  name="USTot" placeholder="All States" disabled="disabled" style ="width:140px;">
 				</span>
 			<br>
 				<select name="state" id="state" size="4" multiple="multiple" style="visibility:hidden;" >
