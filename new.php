@@ -138,14 +138,14 @@ please contact <a href="mailto:Kim.Hyunchung@dol.gov">Hyunchung Kim</a>.<br /><b
 <strong>Glossary of Data <a href="/unemploy/DEF.pdf">Definitions</a>:</strong> -->
 </br>
 </br>
-	<form id="dataSummary" action="test1.php" method="post">
-	<table style="background-color: #DBE7FD;">
+	<form id="dataSummary" action="test1.php" method="post"onsubmit="return validateForm()">
+	<table style="background-color: #DBE7FD;margin-left:20%; 
+    margin-right:auto; ">
 		<tr>
 		<td>
 		Sort by:
 		</td>
 	</tr>
-	<div id="test">
 	<tr>
 		<td colspan="1">
 			<input type="radio" name="OrderBy" value="OrderBy_Year" id="OrderBy_Year" onclick="selectYear();"  class="chk-display" required/>
@@ -160,7 +160,6 @@ please contact <a href="mailto:Kim.Hyunchung@dol.gov">Hyunchung Kim</a>.<br /><b
 			
 		</td>
 	</tr>
-	</div>
 		<tr>
 			<td colspan="2">
 				<label for="category" >Please select a category: </label><br />
