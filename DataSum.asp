@@ -11,26 +11,26 @@
 	?>
 	<?php
 	$sectionA = array(
-		''=> '&#8212&#8212&#8212&#8212&#8212&#8212',
-		'a1' => 'Labor Force',
-		'a2' => 'Claim Data',
-		'a3' => 'Benefit and Duration',
-		'a4' => 'Trust Fund',
-		'a5' => 'Wage and Tax Rate',
+		''=> '&#8212&#8212&#8212&#8212&#8212&#8212&#8212',
+		'Labor Force' => 'Labor Force',
+		'Claim Data' => 'Claim Data',
+		'Benefit and Duration' => 'Benefit and Duration',
+		'Trust Fund' => 'Trust Fund',
+		'Wage and Tax Rate' => 'Wage and Tax Rate',
 		
 	);
 	
 	$sectionB = array(
-		'' => '&#8212&#8212&#8212&#8212&#8212&#8212',
-		'b1' => 'All Categories',
-		'b2' => 'Labor Force Data',
-		'b3' => 'Benefits paid',
-		'b4' => 'Claims Data',
-		'b5' => 'Wage Data',
-		'b6' => 'Tax Revene',
-		'b7' => 'Trust Fund Data',
-		'b8' => 'Extended Benefits',
-		'b9' => 'Loan'
+		'' => '&#8212&#8212&#8212&#8212&#8212&#8212&#8212&#8212',
+		'All Categories' => 'All Categories',
+		'Labor Force Data' => 'Labor Force Data',
+		'Benefits paid' => 'Benefits paid',
+		'Claims Data' => 'Claims Data',
+		'Wage Data' => 'Wage Data',
+		'Tax Revene' => 'Tax Revene',
+		'Trust Fund Data' => 'Trust Fund Data',
+		'Extended Benefits' => 'Extended Benefits',
+		'Loan' => 'Loan'
 	
 	);
 	
@@ -151,7 +151,7 @@ please contact <a href="mailto:Kim.Hyunchung@dol.gov">Hyunchung Kim</a>.<br /><b
 				<label for="category" >Please select a category: </label><br />
 				<p id="categoryError" style="color:red;"></p>
 				<!-- Year Option -->
-				<select id="year_Select" disabled="true" style="display:inline-block; " required  >
+				<select id="year_Select"name ="year_Select" disabled="true" style="display:inline-block; " required  >
 				<?php
 					foreach($sectionA as $key => $value){
 						echo '<option value="', $key, '">', $value, '</option>';
@@ -159,7 +159,7 @@ please contact <a href="mailto:Kim.Hyunchung@dol.gov">Hyunchung Kim</a>.<br /><b
 				?>
 				</select>
 				<!-- State Option -->
-				<select id="state_Select" disabled="true"style="display:none;" required>
+				<select id="state_Select" name ="state_Select" disabled="true"style="display:none;" required>
 					<?php
 						
 						foreach($sectionB as $key => $value){

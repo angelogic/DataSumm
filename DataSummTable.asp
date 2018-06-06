@@ -49,6 +49,10 @@ Department of Labor, Doleta, ETA, Employment Training Administration" />
     <?php include($path . "include/localMain.inc"); ?>
     <div id="content"><a name="#content" id="#content"></a>
       <h1><?php echo $title; ?></h1>
+       <h2><?php 
+        if (isset($_POST["year_Select"]))  print_r($_POST["year_Select"]);
+        else print_r($_POST["state_Select"]);
+        ?></h2>
 
 <button onclick="goBack()">Go Back</button>
 </br>
