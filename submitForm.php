@@ -2,7 +2,7 @@
 <html>
 <head>
     <title></title>
-    <link rel="stylesheet" type="text/css" href="/tablestyle.css">
+    <link rel="stylesheet" type="text/css" href="/assets/css/tablestyle.css">
     <script type="text/javascript" >
         function goBack() {
               window.history.back();
@@ -12,7 +12,10 @@
 <body>
 <h1>Unemployment Insurance Quarterly Data Summary Report </h1>
         <p>State Name</p>
-        <h2>Benefits Data</h2>
+        <h2><?php 
+        if (isset($_POST["year_Select"]))  print_r($_POST["year_Select"]);
+        else print_r($_POST["state_Select"]);
+        ?></h2>
 
 <button onclick="goBack()">Go Back</button>
 </br>

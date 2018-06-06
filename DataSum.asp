@@ -1,25 +1,36 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
 <?php
+		$title = 'Unemployment Insurance Data';
+		$nav = "";
+		$path = "../";
+	    $ybar="<a href='index.asp'>UI</a>&nbsp;>&nbsp;Dashboard" ;
+	?>
+	<?php
 	$sectionA = array(
-		''=> '&#8212&#8212&#8212&#8212&#8212&#8212&#8212',
-		'Labor Force' => 'Labor Force',
-		'Claim Data' => 'Claim Data',
-		'Benefit and Duration' => 'Benefit and Duration',
-		'Trust Fund' => 'Trust Fund',
-		'Wage and Tax Rate' => 'Wage and Tax Rate',
+		''=> '&#8212&#8212&#8212&#8212&#8212&#8212',
+		'a1' => 'Labor Force',
+		'a2' => 'Claim Data',
+		'a3' => 'Benefit and Duration',
+		'a4' => 'Trust Fund',
+		'a5' => 'Wage and Tax Rate',
 		
 	);
 	
 	$sectionB = array(
-		'' => '&#8212&#8212&#8212&#8212&#8212&#8212&#8212&#8212',
-		'All Categories' => 'All Categories',
-		'Labor Force Data' => 'Labor Force Data',
-		'Benefits paid' => 'Benefits paid',
-		'Claims Data' => 'Claims Data',
-		'Wage Data' => 'Wage Data',
-		'Tax Revene' => 'Tax Revene',
-		'Trust Fund Data' => 'Trust Fund Data',
-		'Extended Benefits' => 'Extended Benefits',
-		'Loan' => 'Loan'
+		'' => '&#8212&#8212&#8212&#8212&#8212&#8212',
+		'b1' => 'All Categories',
+		'b2' => 'Labor Force Data',
+		'b3' => 'Benefits paid',
+		'b4' => 'Claims Data',
+		'b5' => 'Wage Data',
+		'b6' => 'Tax Revene',
+		'b7' => 'Trust Fund Data',
+		'b8' => 'Extended Benefits',
+		'b9' => 'Loan'
 	
 	);
 	
@@ -80,61 +91,46 @@
 		'WY' => 'Wyoming'
 	);
 ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
-<head>
-<script type="text/javascript" src="source-of-jquery.js"></script>
-<script type="text/javascript" src="source-of-lightbox-plugin.js"></script>
-<script type="text/javascript" src="source-of-script-with-your-jquery-code-in.js"></script>
-	<?php
-		$title = 'Unemployment Insurance Data';
-		$nav = "";
-		$path = "../";
-	    $ybar="<a href='index.asp'>UI</a>&nbsp;>&nbsp;Dashboard" ;
-	?>
-
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="Description" content="UI Data Summary">
 <meta name="Keywords" content="unemployment, Unemployment Insurance, UI, OUI, Office of Unemployment Insurance, 
 Department of Labor, Doleta, ETA, Employment Training Administration" />
 <title> UI Data Summary, Employment &amp; Training Administration (ETA) - U.S. Department of Labor</title>	
-<link href="../css/style-layout.css" rel="stylesheet" type="text/css" media="screen" />
-	<link href="../css/style-layout-ie7.css" rel='stylesheet' type='text/css' media='screen' />
-	<link href="../css/style-screen.css" rel="stylesheet" type="text/css" media="screen" />
-	<link href="../css/style-print.css" rel="stylesheet" type="text/css" media="print" />
+<link href="/css/style-layout.css" rel="stylesheet" type="text/css" media="screen" />
+	<link href="/css/style-layout-ie7.css" rel='stylesheet' type='text/css' media='screen' />
+	<link href="/css/style-screen.css" rel="stylesheet" type="text/css" media="screen" />
+	<link href="/css/style-print.css" rel="stylesheet" type="text/css" media="print" />
 <script type="text/JavaScript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 <script src="https://webapps.dol.gov/FSPublic/Scripts/W_Helpful.js" type="text/JavaScript"></script>
-<script src="assets/js/validation.js" type="text/JavaScript"></script>
-<script src="assets/js/validaton2.js" type="text/JavaScript"></script>
 <link href="https://webapps.dol.gov/FSPublic/Content/W_Helpful.css" rel="stylesheet" />
-<img src="assets/image/header.png" width="100%" height="100%">
+
+<script src="DataSumValidation.js" type="text/JavaScript"></script>
+<!-- <img src="assets/image/header.png" width="100%" height="100%"> -->
 </head>
 <body >
-<!-- php include($path . "include/metatag.inc"); -->
+<?php include($path . "include/metatag.inc"); ?>
 <div id="wrapper">
-  <!-- php include($path . "include/header.inc");  -->
+  <?php include($path . "include/header.inc"); ?>
   <div id="container">
-  	<!-- php include($path . "include/localMain.inc"); -->
+  	<?php include($path . "include/localMain.inc"); ?>
     <div id="content"><a name="#content" id="#content"></a>
       <h1><?php echo $title; ?></h1>
       <!---- Content starts ---->  
-<p style="text-indent: 2rem; ">The UI Data Summary is produced quarterly from state-reported data contained in 
+<p>The UI Data Summary is produced quarterly from state-reported data contained in 
 the Unemployment Insurance Data Base (UIDB) as well as UI-related data from outside 
 sources (e.g., Bureau of Labor Statistics data on employment and unemployment and U.S. 
 Department of Treasury data on state UI trust fund activities). This report is intended 
 to provide the user with a quick overview of the status of the UI system at the national and 
 state levels.  If you are having any problems loading the pdf format data charts on this page, 
 please contact <a href="mailto:Kim.Hyunchung@dol.gov">Hyunchung Kim</a>.<br /><br />
-<!-- 
-<font color="#990000">*</font>Attention Data Summary Users – Due to the revised calculation for weeks claimed made back in the 3rd quarter of 2006, the Insured Unemployment Rate (IUR) calculations were inadvertently changed as well. The files have now been updated to use calculations consistent with the published average weekly insured unemployed values where claims are reported in the state of residence. These changes affect IURs from the 3rd quarter of 2006 through the 1st quarter of 2008.
-</p>
-<strong>Glossary of Data <a href="/unemploy/DEF.pdf">Definitions</a>:</strong> -->
+
+<font color="#990000">*</font>Attention Data Summary Users – Due to the revised calculation for weeks claimed made back in the 3rd quarter of 2006, the Insured Unemployment Rate (IUR) calculations were inadvertently changed as well. The files have now been updated to use calculations consistent with the published average weekly insured unemployed values where claims are reported in the state of residence. These changes affect IURs from the 3rd quarter of 2006 through the 1st quarter of 2008.</p>
+<strong>Glossary of Data <a href="/unemploy/DEF.pdf">Definitions</a>:</strong>
+<br>
+
 </br>
-</br>
-	<form id="dataSummary" action="submitForm.php" method="post"onsubmit="return validateForm()">
-	<table style="background-color: #DBE7FD;margin-left:20%; 
-    margin-right:auto; ">
+	<form id="dataSummary" action="DataSummTable.asp" method="post"onsubmit="return validateForm()">
+	<table style="background-color: #DBE7FD; ">
 		<tr>
 		<td>
 		Sort by:
@@ -155,7 +151,7 @@ please contact <a href="mailto:Kim.Hyunchung@dol.gov">Hyunchung Kim</a>.<br /><b
 				<label for="category" >Please select a category: </label><br />
 				<p id="categoryError" style="color:red;"></p>
 				<!-- Year Option -->
-				<select id="year_Select" name ="year_Select"disabled="true" style="display:inline-block; " required  >
+				<select id="year_Select" disabled="true" style="display:inline-block; " required  >
 				<?php
 					foreach($sectionA as $key => $value){
 						echo '<option value="', $key, '">', $value, '</option>';
@@ -163,7 +159,7 @@ please contact <a href="mailto:Kim.Hyunchung@dol.gov">Hyunchung Kim</a>.<br /><b
 				?>
 				</select>
 				<!-- State Option -->
-				<select id="state_Select" name ="state_Select" disabled="true"style="display:none;" required>
+				<select id="state_Select" disabled="true"style="display:none;" required>
 					<?php
 						
 						foreach($sectionB as $key => $value){
