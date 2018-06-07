@@ -8,25 +8,52 @@
         $ybar="<a href='index.asp'>UI</a>&nbsp;>&nbsp;Dashboard" ;
     ?>
     <style type="text/css">
-     table
-{
-border-collapse: collapse;
-border-spacing: 0px;
+ table {
+  margin: 25px auto;
+  border-collapse: collapse;
+  border: 2px solid #eee;
+  border-bottom: 2px solid #00cccc;
+  
+  overflow: auto;
 }
-table, th, td
-{
-padding: 5px;
-border: 1px solid black;
-text-align: center;
+table tr:hover {
+  background: #d6d6d6;
 }
+table tr:hover td {
+  color: #555;
+}
+table th, table td {
+  color: #999;
+  border: 2px solid #eee;
+ padding: 5px 4px;
+  border-collapse: collapse;
+  overflow: auto;
+  text-align: center;
+}
+table th {
+  background: #5a76a8;
+  color: #fff;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 12px;
+  }
+table th.last {
+  border-right: none;
+}
+.fixed-side{
+   position: fixed;top:30%; 
+}
+* {box-sizing:border-box; border-collapse:collapse;}
 .validaion {
     background-color: red;
 }
     </style>
     <script type="text/javascript" >
+        // Function goback
         function goBack() {
               window.history.back();
           }
+
     </script>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="Description" content="UI Data Summary">
@@ -61,12 +88,13 @@ Department of Labor, Doleta, ETA, Employment Training Administration" />
 $optionFirstYear =  $_POST['firstYear'] ;
 $optionLastYear =  $_POST['lastYear'];
 $row = 1;
-if (($handle = fopen('Final_UIDS_History.csv', 'r')) !== FALSE){
-    echo '<table>';
+if (($handle = fopen('SampleTable.csv', 'r')) !== FALSE){
+    echo '<table >';
     $data = fgetcsv($handle, 1000, ',');
     // Get headers
      if ( $data!== FALSE ){
-       echo '<tr><th>'.implode('</th><th>', $data).'</th></tr>';
+
+       echo "<tr><th >".implode("</th><th >", $data)."</th></tr>";
     }
     // Get the rest
      while (($data = fgetcsv($handle, 124217728, ',')) !== FALSE   ){
