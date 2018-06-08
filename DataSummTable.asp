@@ -8,7 +8,7 @@
         $ybar="<a href='index.asp'>UI</a>&nbsp;>&nbsp;Dashboard" ;
     ?>
     <style type="text/css">
- table {
+ /*table {
   margin: 25px auto;
   border-collapse: collapse;
   border: 2px solid #eee;
@@ -43,10 +43,22 @@ table th.last {
 .fixed-side{
    position: fixed;top:30%; 
 }
-* {box-sizing:border-box; border-collapse:collapse;}
-.validaion {
-    background-color: red;
+* {box-sizing:border-box; border-collapse:collapse;}*/
+table
+{
+border-collapse: collapse;
+border-spacing: 0px;
 }
+table, th, td
+{
+padding: 5px;
+border: 1px solid black;
+text-align: center;
+}
+.validaion {
+  background-color: red;
+}
+
     </style>
     <script type="text/javascript" >
         // Function goback
@@ -93,16 +105,18 @@ if (($handle = fopen('SampleTable.csv', 'r')) !== FALSE){
     $data = fgetcsv($handle, 1000, ',');
     // Get headers
      if ( $data!== FALSE ){
-
+      unset($data[1]);
        echo "<tr><th >".implode("</th><th >", $data)."</th></tr>";
     }
     // Get the rest
      while (($data = fgetcsv($handle, 124217728, ',')) !== FALSE   ){
         if(($_POST['OrderBy'])== "OrderBy_State"){
         if ( ($_POST['state'] == $data[0]) && ( $optionFirstYear <= $data[1] && $optionLastYear >= $data[1] ) ) {
+        unset($data[1]);
         echo '<tr><td>'.implode('</td><td>', $data).'</td></tr>';
         }
         } else if ( $optionFirstYear <= $data[1] && $optionLastYear >= $data[1] ) {
+        unset($data[1]);
         echo '<tr><td>'.implode('</td><td>', $data).'</td></tr>';
         }
     }
