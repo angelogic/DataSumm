@@ -43,6 +43,9 @@ table th {
 table th.last {
   border-right: none;
 }
+table tr td:first-child  {
+  background-color: #DBE7FD;
+}
 .fixed-side{
    position: sticky;top:20px; 
 }
@@ -53,11 +56,13 @@ table th.last {
 <h1>Unemployment Insurance Quarterly Data Summary Report </h1>
         <p>State Name</p>
         <h2><?php 
+        $_POST['year_Select']= isset($_POST['year_Select'])?$_POST['year_Select']:null;
+        $_POST['state_Select']= isset($_POST['state_Select'])?$_POST['state_Select']:null;
         if (isset($_POST["year_Select"]))  print_r($_POST["year_Select"]);
         else print_r($_POST["state_Select"]);
         ?></h2>
 
-<button onclick="goBack()">Go Back</button>
+<button onclick="goBack()"style ="overflow: auto;position: fixed;">Go Back</button>
 </br>
 </br>
 
