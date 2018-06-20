@@ -1,7 +1,7 @@
 <!DOCTYPE html>
-<html>
+<html  xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-    <title></title>
+    <title>Report</title>
     <link rel="stylesheet" type="text/css" href="/assets/css/tablestyle.css">
     <script type="text/javascript" >
         function goBack() {
@@ -26,7 +26,7 @@ table tr:hover td {
   color: #555;
 }
 table th, table td {
-  color: #999;
+  color: black;
   border: 1px solid #eee;
   padding: 5px 5px;
   border-collapse: collapse;

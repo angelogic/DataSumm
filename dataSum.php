@@ -108,7 +108,7 @@ Department of Labor, Doleta, ETA, Employment Training Administration" />
 <script src="assets/js/validation.js" type="text/JavaScript"></script>
 <script src="assets/js/validaton2.js" type="text/JavaScript"></script>
 <link href="https://webapps.dol.gov/FSPublic/Content/W_Helpful.css" rel="stylesheet" />
-<img src="assets/image/header.png" width="100%" height="100%">
+<img alt="header" src="assets/image/header.png" width="100%" height="100%">
 </head>
 <body >
 <!-- php include($path . "include/metatag.inc"); -->
@@ -155,7 +155,8 @@ please contact <a href="mailto:Kim.Hyunchung@dol.gov">Hyunchung Kim</a>.<br /><b
 				<label for="category" >Please select a category: </label><br />
 				<p id="categoryError" style="color:red;"></p>
 				<!-- Year Option -->
-				<select id="year_Select" name ="year_Select"disabled="true" style="display:inline-block; " required  >
+				<select aria-label="year Select" id="year_Select" name ="year_Select"disabled="true" style="display:inline-block; " required  >
+					
 				<?php
 					foreach($sectionA as $key => $value){
 						echo '<option value="', $key, '">', $value, '</option>';
@@ -163,7 +164,8 @@ please contact <a href="mailto:Kim.Hyunchung@dol.gov">Hyunchung Kim</a>.<br /><b
 				?>
 				</select>
 				<!-- State Option -->
-				<select id="state_Select" name ="state_Select" disabled="true"style="display:none;" required>
+				<select id="state_Select" aria-label="state Select" name ="state_Select" disabled="true"style="display:none;" required>
+					<label></label>
 					<?php
 						
 						foreach($sectionB as $key => $value){
@@ -185,7 +187,8 @@ please contact <a href="mailto:Kim.Hyunchung@dol.gov">Hyunchung Kim</a>.<br /><b
 					<input type="text"  name="USTot" placeholder="All States" disabled="disabled" style ="width:140px;">
 				</span>
 			<br>
-				<select name="state" id="state" size="4" multiple="multiple" style="visibility:hidden;" >
+				<select aria-label="statelist Select" name="state" id="state" size="4" multiple="multiple" style="visibility:hidden;" >
+					
 				<?php
 					foreach($states as $key => $value){
 						echo '<option value="', $key, '"> ', $value, '</option>', PHP_EOL;
@@ -199,7 +202,8 @@ please contact <a href="mailto:Kim.Hyunchung@dol.gov">Hyunchung Kim</a>.<br /><b
 		<td>
 			Starts:
 			<br>
-				<select id="startYears" name="firstYear" required>
+				<select aria-label="Start yearlist Select" id="startYears" name="firstYear" required>
+					
 					<option value="">&#8212;</option>
 					<option value="2017.4">Q4 2017</option>
 					<option value="2017.3">Q3 2017</option>
@@ -237,7 +241,8 @@ please contact <a href="mailto:Kim.Hyunchung@dol.gov">Hyunchung Kim</a>.<br /><b
 		<td>
 			Ends:
 			<br>
-				<select id="endYear" name="lastYear" required>
+				<select aria-label="end yearlist Select" id="endYear" name="lastYear" required>
+					
 					<option value="">&#8212;</option>
 					<option value="2017.4">Q4 2017</option>
 					<option value="2017.3">Q3 2017</option>

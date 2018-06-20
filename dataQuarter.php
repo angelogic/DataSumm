@@ -26,8 +26,8 @@ print("<form name = \"choice\" method=\"post\" action=\"5159report.php\">\n");
 //print("<font STYLE=\"font-family: Verdana, Arial, Helvetica, Sans-serif; font-size: 10pt; color: black\">\n");
 ?>
 <div align=left>Select:<br>
-<input type="radio" name="level" value="state" onclick="show();">State
-<input type="radio" name="level" value="us" onclick="hide();">US Total
+<input type="radio" name="level" value="state" onclick="show();" alt="Choose State">State
+<input type="radio" name="level" value="us" onclick="hide();" alt="Choose US Total">US Total
 </div>
 <br><br>
 
@@ -95,9 +95,9 @@ Please select State(s):<br>
 <br><br>
 <?php
 print("Please select a date range(YYYY/MM):<br>\n");
-
 print("Starts:<br>\n");
-print("<select NAME=\"strtyear\">\n");
+print("<select NAME=\"strtyear\">\n alt=\"select Start year\" ");
+
 //print("<font STYLE=\"font-family: Verdana, Arial, Helvetica, Sans-serif; font-size: 10pt; color: black\">\n");
    	
 $strt_year = 1971;
@@ -109,7 +109,7 @@ $year--;
 print("</font>\n");
 print("</select>\n");
 
-print("<select NAME=\"strtmonth\">\n");
+print("<select NAME=\"strtmonth\">\n alt=\"select Start month\" ");
 //print("<font STYLE=\"font-family: Verdana, Arial, Helvetica, Sans-serif; font-size: 10pt; color: black\">\n");
 
 
@@ -134,7 +134,7 @@ print("<br><br>\n");
 
 //print("<font STYLE=\"font-family: Verdana, Arial, Helvetica, Sans-serif; font-size: 10pt; color: black\">\n");
 print("Ends:</font><br>\n");
-print("<select NAME=\"endyear\">\n");
+print("<select NAME=\"endyear\">\n  alt=\"select End year\"");
 //print("<font STYLE=\"font-family: Verdana, Arial, Helvetica, Sans-serif; font-size: 10pt; color: black\">\n");
   
 $end_year = 1971;
@@ -147,7 +147,7 @@ print("</font>\n");
 print("</select>\n");
 
 
-print("<select NAME=\"endmonth\">\n");
+print("<select NAME=\"endmonth\">\n alt=\"select End month\" ");
 //print("<font STYLE=\"font-family: Verdana, Arial, Helvetica, Sans-serif; font-size: 10pt; color: black\">\n");
     
 print("<option value='01/31'>1</option>\n");
