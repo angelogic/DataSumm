@@ -1,20 +1,34 @@
-<!DOCTYPE html>
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html  xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-    <?php
+      <?php
         $title = 'Unemployment Insurance Data';
         $nav = "";
         $path = "../";
         $ybar="<a href='index.asp'>UI</a>&nbsp;>&nbsp;Dashboard" ;
     ?>
-    <style type="text/css">
- /*table {
+    <link rel="stylesheet" type="text/css" href="/assets/css/tablestyle.css">
+    <script src="sticky.js" type="text/JavaScript"></script>
+    <script src="stickyfill-master/dist/stickyfill.min.js"></script>
+    <script type="text/javascript" >
+        function goBack() {
+              window.history.back();
+          }
+  var elements = document.querySelectorAll('table thead');
+Stickyfill.add(elements);
+    </script>
+    <!-- <style type="text/css">
+  
+      table {
+    
+  font-family: 'Arial';
   margin: 25px auto;
   border-collapse: collapse;
-  border: 2px solid #eee;
-  border-bottom: 2px solid #00cccc;
-  
-  overflow: auto;
+  border: 1px solid black;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1), 0px 10px 20px rgba(0, 0, 0, 0.05), 0px 20px 20px rgba(0, 0, 0, 0.05), 0px 30px 20px rgba(0, 0, 0, 0.05);
+
+
 }
 table tr:hover {
   background: #d6d6d6;
@@ -23,51 +37,108 @@ table tr:hover td {
   color: #555;
 }
 table th, table td {
-  color: #999;
-  border: 2px solid #eee;
- padding: 5px 4px;
-  border-collapse: collapse;
-  overflow: auto;
-  text-align: center;
+  color: black;
+  border: 1px solid black;
+  padding: 5px 5px;
+  
+   text-align: center;
+   
 }
 table th {
-  background: #5a76a8;
-  color: #fff;
+color: white;
   text-align: center;
-  text-transform: uppercase;
-  font-size: 12px;
+  font-size: 15px;
+ background: #5a76a8;
+
   }
 table th.last {
   border-right: none;
 }
+table tr td:first-child  {
+ background-color: #DBE7FD;
+
+
+}
 .fixed-side{
-   position: fixed;top:30%; 
+
 }
-* {box-sizing:border-box; border-collapse:collapse;}*/
-table
-{
-border-collapse: collapse;
-border-spacing: 0px;
+ .container thead{
+
 }
-table, th, td
-{
-padding: 5px;
-border: 1px solid black;
-text-align: center;
+table tbody {
+ 
 }
-.validaion {
-  background-color: red;
+.container {
+ overflow-x: scroll;
+  overflow-y: scroll;
+  height: 400px;
+position: relative;
 }
+
+* {box-sizing:border-box; border-collapse:collapse;}
+
+    </style> -->
+    <style type="text/css">
+  
+      table {
+    
+  font-family: 'Arial';
+  margin: 25px auto;
+  border-collapse: collapse;
+  border: 1px solid black;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1), 0px 10px 20px rgba(0, 0, 0, 0.05), 0px 20px 20px rgba(0, 0, 0, 0.05), 0px 30px 20px rgba(0, 0, 0, 0.05);
+
+
+}
+table tr:hover {
+  background: #d6d6d6;
+}
+table tr:hover td {
+  color: #555;
+}
+table th, table td {
+  color: black;
+  border: 1px solid black;
+  padding: 5px 5px;
+  
+   text-align: center;
+   
+}
+table th {
+color: white;
+  text-align: center;
+  font-size: 15px;
+ background: #5a76a8;
+
+  }
+table th.last {
+  border-right: none;
+}
+table tr td:first-child  {
+ background-color: #DBE7FD;
+
+
+}
+.fixed-side{
+
+}
+ .container thead{
+
+}
+table tbody {
+ 
+}
+.container {
+ overflow-x: scroll;
+  overflow-y: scroll;
+  height: 400px;
+position: relative;
+}
+
+* {box-sizing:border-box; border-collapse:collapse;}
 
     </style>
-    <script type="text/javascript" >
-        // Function goback
-        function goBack() {
-              window.history.back();
-          }
-
-    </script>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="Description" content="UI Data Summary">
 <meta name="Keywords" content="unemployment, Unemployment Insurance, UI, OUI, Office of Unemployment Insurance, 
 Department of Labor, Doleta, ETA, Employment Training Administration" />
@@ -79,6 +150,9 @@ Department of Labor, Doleta, ETA, Employment Training Administration" />
 <script type="text/JavaScript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 <script src="https://webapps.dol.gov/FSPublic/Scripts/W_Helpful.js" type="text/JavaScript"></script>
 <link href="https://webapps.dol.gov/FSPublic/Content/W_Helpful.css" rel="stylesheet" />
+<script type="text/javascript">
+ 
+</script>
 </head>
 <body>
 <?php include($path . "include/metatag.inc"); ?>
@@ -91,48 +165,70 @@ Department of Labor, Doleta, ETA, Employment Training Administration" />
        <h2><?php 
         if (isset($_POST["year_Select"]))  print_r($_POST["year_Select"]);
         else print_r($_POST["state_Select"]);
-        ?></h2>
-
+        ?> Reports</h2>
 <button onclick="goBack()">Go Back</button>
+<button name="create_excel" id="create_excel" class="btn btn-success" disabled>Create Excel File</button> 
 </br>
 </br>
+
+ 
 <?PHP
 $optionFirstYear =  $_POST['firstYear'] ;
 $optionLastYear =  $_POST['lastYear'];
-$row = 1;
-if (($handle = fopen('SampleTable.csv', 'r')) !== FALSE){
-    echo '<table >';
-    $data = fgetcsv($handle, 1000, ',');
-    // Get headers
-     if ( $data!== FALSE ){
-      unset($data[1]);
-       echo "<tr><th >".implode("</th><th >", $data)."</th></tr>";
+$year_Select = $_POST['year_Select']= isset($_POST['year_Select'])?$_POST['year_Select']:null;
+ $state_Select= $_POST['state_Select']= isset($_POST['state_Select'])?$_POST['state_Select']:null;
+       if ($state_Select) {
+        switch ($state_Select) {
+          case 'Labor Force Data':
+            include 'CrosswalkPHP/Labor_Force_Data.php';
+           break;
+           case 'Benefits paid':
+            include 'CrosswalkPHP/BenefitData.php';
+           break;
+           case 'Claims Data':
+            include 'CrosswalkPHP/ClaimData.php';
+           break;
+           case 'Wage Data':
+            include 'CrosswalkPHP/WageData.php';
+           break;
+           case 'Trust Fund Data':
+            include 'CrosswalkPHP/TrustFundData.php';
+           break;
+           case 'Extended Benefits':
+            include 'CrosswalkPHP/ExtendedData.php';
+           break;
+             case 'Loan':
+            include 'CrosswalkPHP/LoanData.php';
+           break;
+              case 'Tax Revene':
+           echo "Webpage under Construction ";
+           break;
+           default:
+            include 'CrosswalkPHP/default.php';
+      }
     }
-    // Get the rest
-     while (($data = fgetcsv($handle, 124217728, ',')) !== FALSE   ){
-        if(($_POST['OrderBy'])== "OrderBy_State"){
-        if ( ($_POST['state'] == $data[0]) && ( $optionFirstYear <= $data[1] && $optionLastYear >= $data[1] ) ) {
-        unset($data[1]);
-        echo '<tr><td>'.implode('</td><td>', $data).'</td></tr>';
-        }
-        } else if ( $optionFirstYear <= $data[1] && $optionLastYear >= $data[1] ) {
-        unset($data[1]);
-        echo '<tr><td>'.implode('</td><td>', $data).'</td></tr>';
-        }
+    if ($year_Select){
+      switch ($year_Select) {
+          case 'Labor Force':
+            include 'CrosswalkPHP/Labor_Force_Data.php';
+           break;
+           case 'Benefit and Duration':
+            include 'CrosswalkPHP/BenefitData.php';
+           break;
+           case 'Claim Data':
+            include 'CrosswalkPHP/ClaimData.php';
+           break;
+           case 'Wage and Tax Rate':
+            include 'CrosswalkPHP/WageData.php';
+           break;
+           case 'Trust Fund':
+            include 'CrosswalkPHP/TrustFundData.php';
+           break;
+
+       }
     }
-    fclose($handle);
-    echo '</table>';
-}
-else {
-    echo "File can not be found";
-}
-
-// important
-
 ?>
-</div>
-    </div>
-    <?php include($path . "include/footer.inc"); ?>
-</div>
+
+
 </body>
 </html>
